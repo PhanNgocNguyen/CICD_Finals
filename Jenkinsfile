@@ -41,17 +41,12 @@ pipeline {
 
         stage('Deploy Golang to DEV') {
             steps {
-                script {
-                    echo 'Clearing final_cicd-related images and containers'
-                    sh '''
-                        docker container stop final_cicd || echo "No container named final_cicd to stop"
-                        docker container rm final_cicd || echo "No container named final_cicd to remove"
-                        docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG} || echo "No image named ${DOCKER_IMAGE}:${DOCKER_TAG} to remove"
-                    '''
-                }
+                
                 echo 'Deploying to DEV environment...'
                 sh 'docker image pull smemory/cdci:latest'
-                sh 'docker container stop final_cicd || echo "this container does not exist"'
+                sh 'docker container stop final_cicd || echo "This container does not exist"'
+                sh 'docker container rm final_cicd || echo "No container named final_cicd to remove"'
+                sh 'docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG} || echo "No image named ${DOCKER_IMAGE}:${DOCKER_TAG} to remove"'
                 sh 'docker network create dev || echo "this network still exists"'
                 sh 'echo y | docker container prune '
 
