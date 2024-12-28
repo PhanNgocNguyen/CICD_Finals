@@ -47,7 +47,7 @@ pipeline {
                 sh 'docker container stop final_cicd || echo "This container does not exist"'
                 sh 'docker container rm final_cicd || echo "No container named final_cicd to remove"'
                 sh 'docker image rm ${DOCKER_IMAGE}:${DOCKER_TAG} || echo "No image named ${DOCKER_IMAGE}:${DOCKER_TAG} to remove"'
-                sh 'docker network create dev || echo "this network still exists"'
+                sh 'docker network create dev || echo "This network still exists"'
                 sh 'echo y | docker container prune '
 
                 sh 'docker container run -d --rm --name final_cicd -p 4000:4000 --network dev smemory/cdci:latest'
