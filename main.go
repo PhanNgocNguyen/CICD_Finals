@@ -33,7 +33,7 @@ func main() {
 }
 
 func hello(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "Hello"})
+	c.JSON(http.StatusOK, gin.H{"message": "It's working"})
 }
 
 func getItems(c *gin.Context) {
