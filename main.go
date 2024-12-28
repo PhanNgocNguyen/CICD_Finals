@@ -21,7 +21,6 @@ var items = []Item{
 func main() {
 	router := gin.Default()
 
-	router.GET("/ping", ping)
 	router.GET("/hello", hello)
 
 	router.GET("/items", getItems)
@@ -35,10 +34,6 @@ func main() {
 
 func hello(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Hello"})
-}
-
-func ping(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"message": "pong"})
 }
 
 func getItems(c *gin.Context) {
