@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/PhanNgocNguyen/CICD_Finals.git'
+                git branch: 'master', url: 'https://github.com/PhanNgocNguyen/CICD_Finals.git'
             }
         }
 
