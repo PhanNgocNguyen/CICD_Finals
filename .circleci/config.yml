@@ -60,10 +60,10 @@ jobs:
       - run:
           name: Send Telegram Notification
           command: |
-            curl -X POST "https://api.telegram.org/bot7686490744:AAF3MWixwEm0e6SJZu520Uu8pNmYNB2q7VU/sendMessage" \
+            curl -X POST "https://api.telegram.org/bot7811591595:AAEAhsr5jqVTEPDHUGBbwh6bJE5pxfgJFbc/sendMessage" \
             -H "Content-Type: application/json" \
-            -d '{"chat_id": "-4696233151", "text": "CircleCI build completed successfully!"}' \
-            || echo "Telegram notification failed"
+            -d '{"chat_id": "-4662212571", "text": "CircleCI build completed"}' \
+            || echo "CircleCI build failed"
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
