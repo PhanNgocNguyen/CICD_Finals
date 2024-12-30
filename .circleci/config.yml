@@ -58,7 +58,7 @@ jobs:
           path: ~/artifacts
           destination: executables
       - run:
-          name: Send Telegram Notification
+          name: Send notification
           command: |
             curl -X POST "https://api.telegram.org/bot7811591595:AAEAhsr5jqVTEPDHUGBbwh6bJE5pxfgJFbc/sendMessage" \
             -H "Content-Type: application/json" \
